@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kaushik Patel — Principal PM</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #070707;
+  --surface: #111010;
+  --surface2: #181818;
+  --gold: #C9A84C;
+  --gold-dim: #8a6e2f;
+  --text: #EDE8DF;
+  --text-mid: #9a9490;
+  --text-dim: #555250;
+  --line: #222020;
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+  --max: 960px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0 max(40px, calc((100vw - var(--max)) / 2));
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-eyebrow {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 28px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards 0.3s;
+}
+
+.hero-name {
+  font-family: var(--serif);
+  font-size: clamp(56px, 8vw, 96px);
+  font-weight: 300;
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  margin-bottom: 32px;
+  opacity: 0;
+  animation: fadeUp 0.9s ease forwards 0.5s;
+}
+
+.hero-name em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.hero-statement {
+  font-family: var(--serif);
+  font-size: clamp(18px, 2.5vw, 24px);
+  font-weight: 300;
+  color: var(--text-mid);
+  max-width: 540px;
+  line-height: 1.6;
+  margin-bottom: 48px;
+  opacity: 0;
+  animation: fadeUp 0.9s ease forwards 0.7s;
+}
+
+.hero-statement strong {
+  color: var(--text);
+  font-weight: 400;
+}
+
+.hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 64px;
+  opacity: 0;
+  animation: fadeUp 0.9s ease forwards 0.9s;
+}
+
+.tag {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border: 1px solid var(--line);
+  color: var(--text-dim);
+  font-family: var(--sans);
+  font-weight: 400;
+}
+
+.hero-links {
+  display: flex;
+  gap: 24px;
+  opacity: 0;
+  animation: fadeUp 0.9s ease forwards 1.1s;
+}
+
+.hero-link {
+  font-size: 13px;
+  color: var(--text-mid);
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  border-bottom: 1px solid var(--text-dim);
+  padding-bottom: 2px;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.hero-link:hover { color: var(--gold); border-color: var(--gold); }
+
+.scroll-hint {
+  position: absolute;
+  bottom: 40px;
+  left: max(40px, calc((100vw - var(--max)) / 2));
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  opacity: 0;
+  animation: fadeUp 0.9s ease forwards 1.4s;
+}
+
+.scroll-hint::before {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: var(--gold-dim);
+}
+
+/* ── SECTION WRAPPER ── */
+.section {
+  padding: 120px max(40px, calc((100vw - var(--max)) / 2));
+}
+
+.section-label {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 500;
+  margin-bottom: 64px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.section-label::after {
+  content: '';
+  flex: 1;
+  max-width: 60px;
+  height: 1px;
+  background: var(--gold-dim);
+}
+
+/* ── BRAND STATEMENT ── */
+.brand {
+  background: var(--surface);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.brand-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+}
+
+.brand-quote {
+  font-family: var(--serif);
+  font-size: clamp(26px, 4vw, 42px);
+  font-weight: 300;
+  line-height: 1.4;
+  color: var(--text);
+  padding: 80px 0;
+  border-left: 1px solid var(--gold);
+  padding-left: 40px;
+  margin-left: -1px;
+}
+
+.brand-quote em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+/* ── TIMELINE ── */
+.timeline-section { background: var(--bg); }
+
+.timeline {
+  position: relative;
+  padding-left: 24px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--gold), var(--gold-dim) 60%, transparent);
+}
+
+.tl-entry {
+  position: relative;
+  margin-bottom: 80px;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.tl-entry.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.tl-dot {
+  position: absolute;
+  left: -30px;
+  top: 6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 1px solid var(--gold-dim);
+  transition: border-color 0.3s, background 0.3s;
+}
+
+.tl-entry:hover .tl-dot {
+  background: var(--gold);
+  border-color: var(--gold);
+}
+
+.tl-meta {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.tl-year {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+  font-weight: 500;
+  font-family: var(--sans);
+}
+
+.tl-company {
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.tl-role {
+  font-family: var(--serif);
+  font-size: clamp(22px, 3vw, 30px);
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  color: var(--text);
+}
+
+.tl-body {
+  font-size: 15px;
+  color: var(--text-mid);
+  max-width: 600px;
+  line-height: 1.75;
+  margin-bottom: 24px;
+}
+
+.tl-shipped {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.shipped-label {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.shipped-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 14px;
+  color: var(--text);
+  font-weight: 300;
+}
+
+.shipped-item::before {
+  content: '→';
+  color: var(--gold);
+  flex-shrink: 0;
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+.shipped-metric {
+  display: inline-block;
+  font-family: var(--serif);
+  font-size: 13px;
+  font-style: italic;
+  color: var(--text-mid);
+  margin-top: 2px;
+}
+
+.tl-divider {
+  width: 40px;
+  height: 1px;
+  background: var(--line);
+  margin: 28px 0;
+}
+
+/* ── ANCHOR STORIES ── */
+.stories { background: var(--surface); }
+
+.story-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+
+.story-card {
+  background: var(--surface);
+  padding: 40px 36px;
+  transition: background 0.3s;
+}
+
+.story-card:hover { background: var(--surface2); }
+
+.story-num {
+  font-family: var(--serif);
+  font-size: 64px;
+  font-weight: 300;
+  color: var(--line);
+  line-height: 1;
+  margin-bottom: 24px;
+  transition: color 0.3s;
+}
+
+.story-card:hover .story-num { color: var(--gold-dim); }
+
+.story-title {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 400;
+  margin-bottom: 16px;
+  line-height: 1.3;
+}
+
+.story-body {
+  font-size: 14px;
+  color: var(--text-mid);
+  line-height: 1.75;
+}
+
+.story-outcome {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  font-size: 13px;
+  color: var(--gold);
+  font-style: italic;
+  font-family: var(--serif);
+}
+
+/* ── NOW ── */
+.now-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+@media (max-width: 640px) { .now-grid { grid-template-columns: 1fr; } }
+
+.now-card {
+  border: 1px solid var(--line);
+  padding: 36px;
+  transition: border-color 0.3s;
+}
+
+.now-card:hover { border-color: var(--gold-dim); }
+
+.now-card-label {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.now-card-title {
+  font-family: var(--serif);
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 14px;
+  line-height: 1.3;
+}
+
+.now-card-body {
+  font-size: 14px;
+  color: var(--text-mid);
+  line-height: 1.75;
+}
+
+/* ── CONTACT ── */
+.contact {
+  background: var(--surface);
+  border-top: 1px solid var(--line);
+  text-align: center;
+}
+
+.contact-heading {
+  font-family: var(--serif);
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 300;
+  line-height: 1.2;
+  margin-bottom: 24px;
+}
+
+.contact-heading em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.contact-sub {
+  font-size: 15px;
+  color: var(--text-mid);
+  max-width: 480px;
+  margin: 0 auto 48px;
+  line-height: 1.7;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.contact-link {
+  font-size: 13px;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.2s;
+}
+
+.contact-link:hover { color: var(--gold); }
+
+.contact-link .arrow { color: var(--gold); font-size: 16px; }
+
+.footer-note {
+  margin-top: 80px;
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+  font-size: 12px;
+  color: var(--text-dim);
+  letter-spacing: 0.06em;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-eyebrow">Kaushik Patel · PhD, EMBA · Seattle</p>
+  <h1 class="hero-name">Principal<br><em>Product</em><br>Manager</h1>
+  <p class="hero-statement">
+    <strong>The hardest part of AI isn't building it.</strong><br>
+    It's getting humans to trust it enough to use it.<br>
+    I've spent 15 years solving that problem.
+  </p>
+  <div class="hero-tags">
+    <span class="tag">Amazon</span>
+    <span class="tag">AWS</span>
+    <span class="tag">Alexa</span>
+    <span class="tag">JPMorgan Chase</span>
+    <span class="tag">1M+ Workers Protected</span>
+    <span class="tag">85M Customers</span>
+  </div>
+  <div class="hero-links">
+    <a href="https://linkedin.com/in/kaushikpatelphd" class="hero-link" target="_blank">LinkedIn</a>
+    <a href="mailto:ukalien@gmail.com" class="hero-link">Email</a>
+    <a href="#timeline" class="hero-link">See the work ↓</a>
+  </div>
+  <p class="scroll-hint">The story</p>
+</section>
+
+<!-- BRAND STATEMENT -->
+<div class="brand">
+  <div class="section brand-inner">
+    <blockquote class="brand-quote">
+      Find the problem hiding in the data.<br>
+      Prove the fix exists <em>before asking for permission.</em><br>
+      Build the platform that makes it impossible to go back.
+    </blockquote>
+  </div>
+</div>
+
+<!-- TIMELINE -->
+<section class="section timeline-section" id="timeline">
+  <p class="section-label">The Journey</p>
+
+  <div class="timeline">
+
+    <!-- Sigma Aldrich -->
+    <div class="tl-entry">
+      <div class="tl-dot"></div>
+      <div class="tl-meta">
+        <span class="tl-year">2009 — 2011</span>
+        <span class="tl-company">Sigma-Aldrich · $6B Specialty Chemicals</span>
+      </div>
+      <h3 class="tl-role">Global Product Manager,<br>Materials Science</h3>
+      <p class="tl-body">First lesson in building against resistance. Identified an opportunity in academic research partnerships that both sales and R&D actively opposed — territory, budget, and strategic disagreement simultaneously. Built the case, won the fight, launched the program.</p>
+      <div class="tl-shipped">
+        <p class="shipped-label">Shipped</p>
+        <div class="shipped-item">Multi-institution academic partnership program built from scratch against internal resistance
+          <span class="shipped-metric">— new products, measurable revenue, category positioning</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Wolters Kluwer -->
+    <div class="tl-entry">
+      <div class="tl-dot"></div>
+      <div class="tl-meta">
+        <span class="tl-year">2014 — 2017</span>
+        <span class="tl-company">Wolters Kluwer Enablon · Fortune 100 EHS</span>
+      </div>
+      <h3 class="tl-role">Strategic Product Manager,<br>Enterprise Safety</h3>
+      <p class="tl-body">Learned the defining lesson of my career: workers afraid of surveillance won't use your platform no matter how good it is. I put them in the room to co-design it. That shift — from something done <em>to</em> workers to something built <em>with</em> them — changed adoption entirely. Also rewrote the go-to-market by shifting from IT buyers to operations and safety leaders who actually owned the problem.</p>
+      <div class="tl-shipped">
+        <p class="shipped-label">Shipped</p>
+        <div class="shipped-item">Enterprise EHS platform across Fortune 100 manufacturing, chemicals, healthcare, and construction</div>
+        <div class="shipped-item">New go-to-market model that changed who we sold to — and how adoption happened</div>
+      </div>
+    </div>
+
+    <!-- AWS -->
+    <div class="tl-entry">
+      <div class="tl-dot"></div>
+      <div class="tl-meta">
+        <span class="tl-year">2017</span>
+        <span class="tl-company">Amazon Web Services</span>
+      </div>
+      <h3 class="tl-role">Senior PM, Machine Learning<br>Sales Intelligence</h3>
+      <p class="tl-body">AWS sales teams were product-pitching instead of solution-selling. I built the ML platform that changed that. The hardest problem wasn't the collaborative filtering model. It was getting sales reps to trust AI recommendations enough to act on them. I solved that first.</p>
+      <div class="tl-shipped">
+        <p class="shipped-label">Shipped</p>
+        <div class="shipped-item">P2B (Propensity to Buy) — ML platform mapping enterprise customer journeys by industry
+          <span class="shipped-metric">— still influencing how AWS sells today</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Alexa -->
+    <div class="tl-entry">
+      <div class="tl-dot"></div>
+      <div class="tl-meta">
+        <span class="tl-year">2017 — 2018</span>
+        <span class="tl-company">Amazon Alexa · Smart Home</span>
+      </div>
+      <h3 class="tl-role">Senior PM, Alexa Smart Home<br>Certification</h3>
+      <p class="tl-body">Customer trust in Alexa Smart Home was eroding. Nobody had formally identified it as a product problem. I pulled support ticket data that wasn't mine to ignore, connected the dots before anyone flagged it, and brought the diagnosis to leadership before I was asked to look. The root cause was third-party device quality. The fix was a certification program I invented from scratch.</p>
+      <div class="tl-shipped">
+        <p class="shipped-label">Shipped</p>
+        <div class="shipped-item">Works With Alexa — global device certification program, built from zero
+          <span class="shipped-metric">— support tickets down, return rates down, ecosystem trust rebuilt</span>
+        </div>
+        <div class="shipped-item">Certification infrastructure for Alexa launches across India, Japan, Australia, Canada</div>
+      </div>
+    </div>
+
+    <!-- WHS Innovation -->
+    <div class="tl-entry">
+      <div class="tl-dot"></div>
+      <div class="tl-meta">
+        <span class="tl-year">2018 — 2020</span>
+        <span class="tl-company">Amazon · Global WHS Innovation</span>
+      </div>
+      <h3 class="tl-role">Founding PM, Global Safety Platform<br>+ IoT Sensor Portfolio</h3>
+      <p class="tl-body">Amazon had 1M+ workers and a patchwork of safety systems that couldn't serve our scale. I ran the build-vs-buy analysis, convinced VP leadership no vendor could do what we needed, and became the founding PM of AUSTIN — Amazon's own global EHS platform. Then I built the IoT sensor portfolio that fed it signal. A preventable injury happened before the platform was ready. That's when this stopped being a job.</p>
+      <div class="tl-shipped">
+        <p class="shipped-label">Shipped</p>
+        <div class="shipped-item">AUSTIN — Amazon's internal EHS platform, founded from a build-vs-buy call I made and won
+          <span class="shipped-metric">— 1,200+ sites, thousands of safety events processed daily, every EHS employee on earth</span>
+        </div>
+        <div class="shipped-item">Protective glove sensors for deli operations
+          <span class="shipped-metric">— finger injuries from hundreds per year to zero</span>
+        </div>
+        <div class="shipped-item">NOX gas sensors at delivery stations
+          <span class="shipped-metric">— incidents to near zero, 100% compliance</span>
+        </div>
+        <div class="shipped-item">Refrigeration unit PPE sensors
+          <span class="shipped-metric">— 100% compliance in sub-zero environments</span>
+        </div>
+        <div class="shipped-item">Computer vision fire drill cameras
+          <span class="shipped-metric">— real-time evacuation recognition, near-zero operational downtime</span>
+        </div>
+        <div class="shipped-item">Multi-channel safety messaging platform during COVID
+          <span class="shipped-metric">— 3M messages/day, 1.2M users, 45% lift in engagement</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Amazon Robotics -->
+    <div class="tl-entry">
+      <div class="tl-dot"></div>
+      <div class="tl-meta">
+        <span class="tl-year">2020 — 2022</span>
+        <span class="tl-company">Amazon Robotics · NA Customer Fulfillment</span>
+      </div>
+      <h3 class="tl-role">Sr. Manager (L7), Product Lead<br>Safety & Fulfillment Technology</h3>
+      <p class="tl-body">Amazon's fulfillment network had rising injury rates and no scalable detection system. I didn't write a proposal. I bought a $30 Arduino, modified it myself, and showed up to the first stakeholder meeting with a working prototype. The first facility pilot exceeded our injury reduction projections in both speed and effect size. We expanded before the 90-day window closed.</p>
+      <div class="tl-shipped">
+        <p class="shipped-label">Shipped</p>
+        <div class="shipped-item">$30 Arduino prototype → $120M+ annual IoT platform in 13 months
+          <span class="shipped-metric">— 1M+ workers protected, 65% injury reduction, $750M+/yr in avoidable harm prevented</span>
+        </div>
+        <div class="shipped-item">18 products across internal and third-party channels — 11 used AI/ML</div>
+        <div class="shipped-item">M&A strategy reducing licensing costs by $25M in year one</div>
+      </div>
+    </div>
+
+    <!-- JPMC -->
+    <div class="tl-entry">
+      <div class="tl-dot"></div>
+      <div class="tl-meta">
+        <span class="tl-year">2022 — Present</span>
+        <span class="tl-company">JPMorgan Chase · Office of the CTO</span>
+      </div>
+      <h3 class="tl-role">Executive Director, Product Management<br>AI/ML at $4T Scale</h3>
+      <p class="tl-body">The challenge at JPMC isn't building AI. It's shipping it through the most demanding regulatory environment in the world, at a scale where a bad decision touches 85M customers. I translated Amazon's customer obsession into a $4T bank — and made compliance the accelerant, not the brake.</p>
+      <div class="tl-shipped">
+        <p class="shipped-label">Shipped</p>
+        <div class="shipped-item">JPMC Assist — 3 features shipped to 150K+ employees
+          <span class="shipped-metric">— CSAT lifted from 2.5 to 4.0</span>
+        </div>
+        <div class="shipped-item">Contact Center AI — chatbot and routing logic
+          <span class="shipped-metric">— handle time reduced, dashboards rebuilt for associate clarity</span>
+        </div>
+        <div class="shipped-item">Wealth Plan — embedded to rescue a struggling PM team
+          <span class="shipped-metric">— 30% engagement lift, 40% error reduction</span>
+        </div>
+        <div class="shipped-item">6 LLM capabilities shipped to 85M customers inside one of the world's most regulated institutions</div>
+        <div class="shipped-item">ProdCon — JPMC's global PM conference
+          <span class="shipped-metric">— 50 to 10,000+ practitioners across 22 sites, zero budget</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ANCHOR STORIES -->
+<section class="section stories">
+  <p class="section-label">Three Defining Moments</p>
+  <div class="story-grid">
+    <div class="story-card">
+      <div class="story-num">01</div>
+      <h3 class="story-title">I found the problem before anyone asked me to look</h3>
+      <p class="story-body">At Alexa, customer trust was eroding in data I had no mandate to investigate. I pulled it anyway, connected the dots, diagnosed third-party device quality as the root cause, and walked into leadership with a solution before anyone knew there was a problem.</p>
+      <p class="story-outcome">"Works With Alexa" — invented from a data anomaly I wasn't supposed to be looking at.</p>
+    </div>
+    <div class="story-card">
+      <div class="story-num">02</div>
+      <h3 class="story-title">I showed up with a prototype instead of a proposal</h3>
+      <p class="story-body">When Amazon's injury rates were rising, the path was obvious: write a proposal, commission a vendor assessment, wait for approval. Instead I bought a $30 Arduino and showed up to the first meeting with a working sensor. Thirteen months later it was a $120M platform.</p>
+      <p class="story-outcome">$30 → $120M. The prototype was mine. The platform that followed was the team's.</p>
+    </div>
+    <div class="story-card">
+      <div class="story-num">03</div>
+      <h3 class="story-title">I build the trust before the technology can work</h3>
+      <p class="story-body">At AWS, ML models don't matter if sales reps won't trust them. At Amazon, wellbeing tech doesn't work if workers think it's surveillance. At JPMC, AI can't ship if compliance is treated as a blocker. In every case, I solved the human problem first. The technology came after.</p>
+      <p class="story-outcome">The pattern across 15 years: trust is the product. Everything else is the mechanism.</p>
+    </div>
+  </div>
+</section>
+
+<!-- NOW -->
+<section class="section" style="background: var(--bg);">
+  <p class="section-label">Right Now</p>
+  <div class="now-grid">
+    <div class="now-card">
+      <p class="now-card-label">Day job</p>
+      <h3 class="now-card-title">Shipping AI to 85 million people</h3>
+      <p class="now-card-body">At JPMorgan Chase, I lead AI/ML product development from the office of the CTO — shipping LLM capabilities to 85M customers inside the most compliance-heavy institution in the world. Six capabilities shipped in 2024. The goal: prove regulatory compliance can be the accelerant, not the brake.</p>
+    </div>
+    <div class="now-card">
+      <p class="now-card-label">Building</p>
+      <h3 class="now-card-title">Calm Family — solo, full-stack, live</h3>
+      <p class="now-card-body">I'm independently building Calm Family, an AI-powered app to support families in their hardest moments. Full-stack: Next.js, Supabase, Vercel, Claude API. Live at 360-family.vercel.app. Because the best PMs ship things outside their day job too.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact">
+  <h2 class="contact-heading">
+    If you're building something where<br>
+    <em>AI adoption is the hard part</em>
+  </h2>
+  <p class="contact-sub">I'd like to hear about it. Not a pitch — just a conversation. The problems worth working on usually find each other that way.</p>
+  <div class="contact-links">
+    <a href="mailto:ukalien@gmail.com" class="contact-link">
+      <span class="arrow">→</span> ukalien@gmail.com
+    </a>
+    <a href="https://linkedin.com/in/kaushikpatelphd" class="contact-link" target="_blank">
+      <span class="arrow">→</span> LinkedIn
+    </a>
+    <a href="https://360-family.vercel.app" class="contact-link" target="_blank">
+      <span class="arrow">→</span> Calm Family App
+    </a>
+  </div>
+  <p class="footer-note">Kaushik Patel · PhD Northwestern · EMBA · Seattle, WA</p>
+</section>
+
+<script>
+// Scroll-triggered reveal for timeline entries
+const entries = document.querySelectorAll('.tl-entry');
+const observer = new IntersectionObserver((obs) => {
+  obs.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+entries.forEach(e => observer.observe(e));
+</script>
+</body>
+</html>
