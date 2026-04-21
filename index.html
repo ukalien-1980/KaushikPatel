@@ -244,11 +244,13 @@ body {
   background: var(--surface);
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
+  padding-left: max(40px, calc((100vw - var(--max)) / 2));
+  padding-right: max(40px, calc((100vw - var(--max)) / 2));
 }
  
 .brand-inner {
   max-width: var(--max);
-  margin: 0 auto;
+  margin: 0;
 }
  
 .brand-quote {
@@ -257,7 +259,7 @@ body {
   font-weight: 300;
   line-height: 1.3;
   color: var(--text);
-  padding: 48px 0 48px 40px;
+  padding: 48px 0 48px 20px;
   border-left: 1px solid var(--gold);
   display: flex;
   flex-wrap: wrap;
