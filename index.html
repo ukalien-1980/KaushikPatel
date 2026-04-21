@@ -59,13 +59,14 @@ body {
 }
  
 .hero-photo {
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
+  width: 160px;
+  height: 200px;
+  border-radius: 50% / 50%;
   object-fit: cover;
   object-position: center top;
   border: 1px solid var(--gold-dim);
-  filter: grayscale(20%);
+  box-shadow: 0 0 0 4px var(--bg), 0 0 0 5px var(--gold-dim);
+  filter: grayscale(15%);
   opacity: 0;
   animation: fadeUp 0.9s ease forwards 0.4s;
   flex-shrink: 0;
@@ -79,7 +80,7 @@ body {
   }
   .hero-photo {
     width: 90px;
-    height: 90px;
+    height: 115px;
     margin-top: 0;
     order: -1;
   }
@@ -610,7 +611,7 @@ body {
         <a href="#timeline" class="hero-link">See the work ↓</a>
       </div>
     </div>
-    <img src="Kaushik_Image.jpg" alt="Kaushik Patel" class="hero-photo">
+    <img src="Kaushik_Image.JPG" alt="Kaushik Patel" class="hero-photo">
   </div>
   <p class="scroll-hint">The story</p>
 </section>
