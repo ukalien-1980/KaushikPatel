@@ -43,14 +43,13 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding: 0 max(40px, calc((100vw - var(--max)) / 2));
+  padding: 80px max(40px, calc((100vw - var(--max)) / 2));
   position: relative;
-  overflow: hidden;
 }
  
 .hero-inner {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 48px;
   width: 100%;
   max-width: var(--max);
@@ -63,18 +62,17 @@ body {
 }
  
 .hero-photo {
-  width: 264px;
-  height: 330px;
+  width: 240px;
+  height: 300px;
   border-radius: 50% / 50%;
   object-fit: cover;
   object-position: center top;
   border: 1px solid var(--gold-dim);
-  outline: 4px solid var(--bg);
   filter: grayscale(15%);
   opacity: 0;
   animation: fadeUp 0.9s ease forwards 0.4s;
   flex-shrink: 0;
-  align-self: center;
+  margin-top: 36px;
 }
  
 @media (max-width: 640px) {
