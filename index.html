@@ -72,7 +72,6 @@ body {
   opacity: 0;
   animation: fadeUp 0.9s ease forwards 0.4s;
   flex-shrink: 0;
-  margin-top: 36px;
 }
  
 @media (max-width: 640px) {
@@ -145,16 +144,12 @@ body {
  
 .hero-tags {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   gap: 8px;
   margin-bottom: 48px;
   opacity: 0;
   animation: fadeUp 0.9s ease forwards 0.9s;
-  overflow-x: auto;
-  padding-bottom: 4px;
 }
- 
-.hero-tags::-webkit-scrollbar { display: none; }
  
 .tag {
   font-size: 12px;
