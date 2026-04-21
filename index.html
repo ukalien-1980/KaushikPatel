@@ -50,8 +50,8 @@ body {
  
 .hero-inner {
   display: flex;
-  align-items: flex-start;
-  gap: 32px;
+  align-items: center;
+  gap: 48px;
   width: 100%;
   max-width: var(--max);
   justify-content: flex-start;
@@ -69,12 +69,12 @@ body {
   object-fit: cover;
   object-position: center top;
   border: 1px solid var(--gold-dim);
-  box-shadow: 0 0 0 4px var(--bg), 0 0 0 5px var(--gold-dim);
+  outline: 4px solid var(--bg);
   filter: grayscale(15%);
   opacity: 0;
   animation: fadeUp 0.9s ease forwards 0.4s;
   flex-shrink: 0;
-  margin-top: 52px;
+  align-self: center;
 }
  
 @media (max-width: 640px) {
